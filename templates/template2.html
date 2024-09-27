@@ -8,42 +8,45 @@
             font-family: 'Microsoft YaHei', Arial, sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #222;
-            color: #ccc;
+            background-image: url("https://pic1.imgdb.cn/item/633c3dea16f2c2beb15b05e6.jpg");
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            color: #fff;
         }
 
         header {
-            background-color: #333;
+            background-color: rgba(51, 51, 51, 0.8);
             color: white;
             padding: 10px 20px;
             text-align: center;
-            border-bottom: 2px solid #444;
+            border-bottom: 2px solid rgba(68, 68, 68, 0.8);
         }
 
         footer {
-            background-color: #333;
+            background-color: rgba(51, 51, 51, 0.8);
             color: white;
             text-align: center;
             padding: 10px 20px;
             position: fixed;
             bottom: 0;
             width: 100%;
-            border-top: 2px solid #444;
+            border-top: 2px solid rgba(68, 68, 68, 0.8);
         }
 
         h1 {
             text-align: center;
-            color: #ccc;
+            color: #fff;
         }
 
         .container {
             width: 80%;
             margin: 20px auto;
-            background-color: #222;
+            background-color: rgba(34, 34, 34, 0.8);
             border-radius: 10px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
             padding: 20px;
-            border: 1px solid #444;
+            border: 1px solid rgba(68, 68, 68, 0.8);
         }
 
         .logo {
@@ -65,23 +68,23 @@
 
         th, td {
             padding: 10px;
-            border: 1px solid #444;
+            border: 1px solid rgba(68, 68, 68, 0.8);
         }
 
         th {
-            background-color: #444;
+            background-color: rgba(68, 68, 68, 0.8);
             color: white;
             border-radius: 5px 5px 0 0;
         }
 
         tr:nth-child(even) {
-            background-color: #333;
+            background-color: rgba(51, 51, 51, 0.8);
         }
 
         .scrollable-table-container {
             max-height: 500px;
             overflow: auto;
-            border: 1px solid #444;
+            border: 1px solid rgba(68, 68, 68, 0.8);
             border-radius: 5px;
             padding: 10px;
         }
@@ -94,13 +97,23 @@
         a:hover {
             text-decoration: underline;
         }
+
+        .summary {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .warning {
+            color: red;
+            font-weight: bold;
+        }
     </style>
 </head>
 <body>
     <header>
         <br>
         <div class="logo">
-            <img src="../logo.png" alt="西南大学教务处 Logo">
+            <img src="../logo.png" alt="西南大学教务处">
         </div>
     </header>
 
@@ -126,7 +139,13 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <?php foreach ($results as $row): ?>
+                    <?php 
+                        $totalSubjects = 0;
+                        $totalCredits = 0;
+                        foreach ($results as $row): 
+                            $totalSubjects += $row['计数'];
+                            $totalCredits += $row['学分'];
+                    ?>
                         <tr>
                             <td><?php echo htmlspecialchars($row['学号']); ?></td>
                             <td><?php echo htmlspecialchars($row['姓名']); ?></td>
@@ -145,6 +164,14 @@
                     <?php endforeach; ?>
                 </tbody>
             </table>
+        </div>
+
+        <div class="summary">
+            <p><strong>总计需补考科目数量：</strong> <?php echo $totalSubjects; ?></p>
+            <p><strong>总计需补考学分数：</strong> <?php echo $totalCredits; ?></p>
+            <?php if ($totalCredits >= 12): ?>
+                <p class="warning"><strong>警告：您需要补考的学分数已经达到或超过12分。</strong></p>
+            <?php endif; ?>
         </div>
     </div>
 

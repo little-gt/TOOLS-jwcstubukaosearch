@@ -72,27 +72,6 @@
             display: block;
         }
     </style>
-    <script>
-        function validateStudentID() {
-            const studentID = document.getElementById("studentID").value;
-            // 正则表达式验证正整数
-            const regex = /^\d+$/;
-            if (!regex.test(studentID)) {
-                alert("请输入有效的正整数学号！");
-                return false;
-            }
-            return true;
-        }
-
-        document.addEventListener("DOMContentLoaded", function () {
-            const form = document.querySelector("form");
-            form.addEventListener("submit", function (event) {
-                if (!validateStudentID()) {
-                    event.preventDefault();
-                }
-            });
-        });
-    </script>
 </head>
 <body>
 <div class="background"></div>
