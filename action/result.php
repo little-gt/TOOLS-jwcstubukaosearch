@@ -2,7 +2,9 @@
 session_start(); // 启动会话
 
 if (!isset($_SESSION['results'])) {
-    header('Location: ../action/error.php?error=查询结果丢失');
+    session_start(); //启动session会话
+    $_SESSION['massage'] = '查询结果丢失，请重新查询';
+    header('Location: ../action/error.php');
     exit;
 }
 

@@ -1,6 +1,13 @@
 <?php
+session_start(); // 启动会话
+
 // 读取错误参数
-$error = isset($_GET['error']) ? htmlspecialchars($_GET['error']) : '';
+if (!isset($_SESSION['massage'])) {
+    $error = '数据传递丢失，请返回主页';
+}else{
+    $error = $_SESSION['massage'];
+    unset($_SESSION['massage']); // 清除会话中的消息数据
+}
 
 // 读取模板文件
 $templatePath = '../templates/error.html';

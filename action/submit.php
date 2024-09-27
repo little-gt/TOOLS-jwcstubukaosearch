@@ -10,7 +10,9 @@ $pattern = '/^\d{15}$/';
 
 // 验证学号是否为空或不符合格式
 if (empty($studentID) || !preg_match($pattern, $studentID)) {
-    header('Location: ../action/error.php?error=请输入有效的15位正整数作为学号');
+    session_start(); //启动session会话
+    $_SESSION['massage'] = '请输入有效的15位正整数作为学号';
+    header('Location: ../action/error.php');
     exit;
 }
 
@@ -40,7 +42,9 @@ if (($handle = fopen($filePath, "r")) !== FALSE) {
 }
 
 if (empty($results)) {
-    header('Location: ../action/error.php?error=未找到匹配的学号');
+    session_start(); //启动session会话
+    $_SESSION['massage'] = '未找到匹配学号';
+    header('Location: ../action/error.php');
     exit;
 }
 
