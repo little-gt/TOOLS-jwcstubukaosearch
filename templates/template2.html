@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>查询结果 | 西南大学教务处 - 补考在线查询</title>
+    <style>
+        body {
+            font-family: 'Microsoft YaHei', Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #222;
+            color: #ccc;
+        }
+
+        header {
+            background-color: #333;
+            color: white;
+            padding: 10px 20px;
+            text-align: center;
+            border-bottom: 2px solid #444;
+        }
+
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 10px 20px;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            border-top: 2px solid #444;
+        }
+
+        h1 {
+            text-align: center;
+            color: #ccc;
+        }
+
+        .container {
+            width: 80%;
+            margin: 20px auto;
+            background-color: #222;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+            padding: 20px;
+            border: 1px solid #444;
+        }
+
+        .logo {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+
+        .logo img {
+            max-width: 200px;
+            max-height: 100px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            text-align: center;
+        }
+
+        th, td {
+            padding: 10px;
+            border: 1px solid #444;
+        }
+
+        th {
+            background-color: #444;
+            color: white;
+            border-radius: 5px 5px 0 0;
+        }
+
+        tr:nth-child(even) {
+            background-color: #333;
+        }
+
+        .scrollable-table-container {
+            max-height: 500px;
+            overflow: auto;
+            border: 1px solid #444;
+            border-radius: 5px;
+            padding: 10px;
+        }
+
+        a {
+            color: #007BFF;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <br>
+        <div class="logo">
+            <img src="../logo.png" alt="西南大学教务处 Logo">
+        </div>
+    </header>
+
+    <div class="container">
+        <h1>学生补考情况查询结果</h1>
+        <div class="scrollable-table-container">
+            <table border="1">
+                <thead>
+                    <tr>
+                        <th>学号</th>
+                        <th>姓名</th>
+                        <th>行政班</th>
+                        <th>课程代码</th>
+                        <th>课程名称</th>
+                        <th>学分</th>
+                        <th>课程性质</th>
+                        <th>总评成绩</th>
+                        <th>任课教师</th>
+                        <th>考试性质</th>
+                        <th>考试具体时间</th>
+                        <th>考试地点</th>
+                        <th>计数</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php foreach ($results as $row): ?>
+                        <tr>
+                            <td><?php echo htmlspecialchars($row['学号']); ?></td>
+                            <td><?php echo htmlspecialchars($row['姓名']); ?></td>
+                            <td><?php echo htmlspecialchars($row['行政班']); ?></td>
+                            <td><?php echo htmlspecialchars($row['课程代码']); ?></td>
+                            <td><?php echo htmlspecialchars($row['课程名称']); ?></td>
+                            <td><?php echo htmlspecialchars($row['学分']); ?></td>
+                            <td><?php echo htmlspecialchars($row['课程性质']); ?></td>
+                            <td><?php echo htmlspecialchars($row['总评成绩']); ?></td>
+                            <td><?php echo htmlspecialchars($row['任课教师']); ?></td>
+                            <td><?php echo htmlspecialchars($row['考试性质']); ?></td>
+                            <td><?php echo htmlspecialchars($row['考试具体时间']); ?></td>
+                            <td><?php echo htmlspecialchars($row['考试地点']); ?></td>
+                            <td><?php echo htmlspecialchars($row['计数']); ?></td>
+                        </tr>
+                    <?php endforeach; ?>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <footer>
+        &copy; 2024 西南大学教务处
+    </footer>
+</body>
+</html>
