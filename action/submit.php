@@ -8,6 +8,15 @@ $studentID = isset($_POST['studentID']) ? trim($_POST['studentID']) : '';
 // 定义正则表达式来验证15位正整数
 $pattern = '/^\d{15}$/';
 
+// CSV文件路径
+$filePath = './data/data.csv';
+if (!file_exists($filePath)) {
+    session_start(); //启动session会话
+    $_SESSION['massage'] = '未找到数据源，请联系系统管理员处理此问题';
+    header('Location: ../action/error.php');
+    exit;
+}
+
 // 验证学号是否为空或不符合格式
 if (empty($studentID) || !preg_match($pattern, $studentID)) {
     session_start(); //启动session会话
@@ -15,9 +24,6 @@ if (empty($studentID) || !preg_match($pattern, $studentID)) {
     header('Location: ../action/error.php');
     exit;
 }
-
-// CSV文件路径
-$filePath = './data/data.csv';
 
 // 初始化结果数组
 $results = [];
