@@ -5,7 +5,7 @@
 ## 系统预览
 
 [![pAlyRUO.png](https://s21.ax1x.com/2024/09/27/pAlyRUO.png)](https://imgse.com/i/pAlyRUO)
-[![pAlyW5D.png](https://s21.ax1x.com/2024/09/27/pAlyW5D.png)](https://imgse.com/i/pAlyW5D)
+[![pA3EoFJ.png](https://s21.ax1x.com/2024/09/30/pA3EoFJ.png)](https://imgse.com/i/pA3EoFJ)
 
 ## 特别注意
 
