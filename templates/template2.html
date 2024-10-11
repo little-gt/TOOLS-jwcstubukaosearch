@@ -177,7 +177,7 @@
             <p><strong>总计补考科目：</strong> <?php echo $totalSubjects; ?>科</p>
             <p><strong>总计补考学分：</strong> <?php echo $totalCredits; ?>分</p>
             <?php if ($totalCredits >= $scoreAcademicWarning): ?>
-                <p class="warning"><strong>学业警告：您所需要补考的学分已经达到或超过12分。</strong></p>
+                <p class="warning"><strong>学业警告：您所需要补考的学分已经达到或超过<?php echo $scoreAcademicWarning; ?>分。</strong></p>
             <?php endif; ?>
         </div>
     </div>
