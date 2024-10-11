@@ -2,7 +2,7 @@
 <html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
-    <title>查询结果 | 西南大学教务处 - 补考在线查询</title>
+    <title>查询结果 | {{university_name}}教务处 - 补考在线查询</title>
     <style>
         body {
             font-family: 'Microsoft YaHei', Arial, sans-serif;
@@ -121,7 +121,7 @@
 <body>
     <header>
         <div class="logo">
-            <img src="../logo.png" alt="西南大学教务处">
+            <img src="{{university_logo}}" alt="{{university_name}}教务处">
         </div>
         <button class="print-button" onclick="printThisPage()">打印本页</button>
     </header>
@@ -176,14 +176,14 @@
         <div class="summary">
             <p><strong>总计补考科目：</strong> <?php echo $totalSubjects; ?>科</p>
             <p><strong>总计补考学分：</strong> <?php echo $totalCredits; ?>分</p>
-            <?php if ($totalCredits >= 12): ?>
+            <?php if ($totalCredits >= $scoreAcademicWarning): ?>
                 <p class="warning"><strong>学业警告：您所需要补考的学分已经达到或超过12分。</strong></p>
             <?php endif; ?>
         </div>
     </div>
 
     <footer>
-        &copy; 2024 西南大学教务处
+        &copy; 2024 {{university_name}}教务处
     </footer>
 </body>
 </html>

@@ -59,4 +59,3 @@ session_start(); // 启动会话
 $_SESSION['results'] = $results;
 header('Location: ../action/result.php');
 exit;
-?>

@@ -2,7 +2,7 @@
 <html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
-    <title>出现错误 | 西南大学教务处 - 补考在线查询</title>
+    <title>出现错误 | {{university_name}}教务处 - 补考在线查询</title>
     <style>
         body {
             font-family: 'Microsoft YaHei', Arial, sans-serif;
@@ -16,7 +16,7 @@
             width: 100%;
             height: 100%;
             z-index: -1;
-            background: url('https://pic1.imgdb.cn/item/633c3dea16f2c2beb15b05e6.jpg') no-repeat center center fixed;
+            background: url('{{html_background}}') no-repeat center center fixed;
             background-size: cover;
             -webkit-background-size: cover;
             -moz-background-size: cover;
@@ -111,7 +111,7 @@
 <div class="overlay">
     <div class="error-box">
         <div class="logo">
-            <img src="../logo.png" alt="西南大学教务处">
+            <img src="{{university_logo}}" alt="{{university_name}}教务处">
         </div>
         <div class="requirements">
             <h4>很抱歉，发生错误：</h4>
