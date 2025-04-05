@@ -1,4 +1,12 @@
 <?php
+/**
+ * 防止直接访问该文件
+ */
+if (basename($_SERVER['SCRIPT_FILENAME']) === 'config.php') {
+    header('HTTP/1.0 400 Bad Request');
+    exit('Bad request');
+}
+
 // 设定查询关闭的时间
 $cutoffDateTime = '2024-09-28 22:30:00';
 
